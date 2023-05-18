@@ -66,17 +66,17 @@ class Aluno extends Pessoa
         this.matricula = matricula;
         this.myResponsavel = myResponsavel;
     }
-    Aluno(String nome, String email, String matricula)
+    Aluno(String nome, String email, String matricula, Responsavel myResponsavel)
     {
-        this(nome, email, "NaN", matricula);
+        this(nome, email, "NaN", matricula, myResponsavel);
     }
-    Aluno(String nome,  String matricula)
+    Aluno(String nome,  String matricula, Responsavel myResponsavel)
     {
-        this(nome, "NaN", "NaN", matricula);
+        this(nome, "NaN", "NaN", matricula, myResponsavel);
     }
     Aluno()
     {
-        this("NaN", "NaN", "NaN", "NaN");
+        this("NaN", "NaN", "NaN", "NaN", null);
     }
     
     //Metodos
@@ -107,10 +107,10 @@ class Responsavel extends Pessoa
 
 class Turma
 {
-    private Alunos[] myTurma;
+    private Aluno[] myTurma;
     private int numAlunos;
     
-    Turma(Alunos[] myTurma, int numAlunos)
+    Turma(Aluno[] myTurma, int numAlunos)
     {
         for(int i = 0; i < numAlunos; i++)
         {
@@ -122,4 +122,55 @@ class Turma
         }
         this.numAlunos = numAlunos;
     }
+}
+
+abstract class EntradaDados
+{
+    private final static String[] validEmails = 
+    {
+        "@gmail.com",
+        "@hotmail.com",
+        "@outlook.com"
+    };
+    
+    public static boolean VerificaMatricula(String matricula)
+    {
+        int n = matricula.length();
+        
+        if(n != 5) return false;
+        
+        for(int i = 0; i < 5; i++)
+            if(matricula.charAt(i) > '9' || matricula.charAt(i) < '0')
+                return false;
+                
+        return true;
+    }
+    
+    public static boolean VerificaEmail(String email)
+    {
+        if(email.indexOf('@') == -1 || email.indexOf('@') != email.lastIndexOf('@'))
+            return false;
+            
+        int n = email.indexOf('@');
+            
+        if(email.charAt(0) == '-' || email.charAt(0) == '@' || email.charAt(n-1) == '-')
+            return false;
+        
+        for(int i = 0; i < n; i++)
+        {
+            char c = email.charAt(i);
+            if((c < '0' || c > '9') && (c < 'A' || c > 'Z') && (c < 'a' || c > 'z') && (c != '-'))
+                return false;
+        }
+        
+        String s = email.substring(n, email.length());
+        
+        for(int i = 0; i < 3; i++)
+        {
+            if(s.equals(validEmails[i]))
+                return true;
+        }
+        
+        return false;   
+    }   
 }
