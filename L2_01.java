@@ -172,5 +172,17 @@ abstract class EntradaDados
         }
         
         return false;   
-    }   
+    }
+	public static boolean VerificaTelefone(String telefone)
+    {
+        if(telefone.length() != 11) return false
+        
+        for(int i = 0; i < 11; i++)
+        {
+            if(telefone.charAt(i) < '0' || telefone.charAt(i) > '9')
+                return false;
+        }
+        
+        return true;
+    }
 }
