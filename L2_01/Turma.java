@@ -2,7 +2,7 @@ package L2_01;
 import java.util.*;
 import java.io.*;
 
-class Turma
+public class Turma
 {
     private Aluno[] myTurma = new Aluno[10];
     private int numAlunos;
