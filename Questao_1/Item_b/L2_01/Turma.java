@@ -45,12 +45,19 @@ public class Turma
         return this.numAlunos;
     }
     
+    //adiciona um novo aluno
+    //a verificação se ultrapassa o limite
+    //foi feito na main
+    //mas poderia ter sido implementado aqui
+    //sem maiores complicações
     public void addAluno(Aluno novoAluno)
     {
         this.myTurma[this.numAlunos] = novoAluno;
         this.numAlunos++;
     }
-    
+
+
+    //mostra a turma na tela com todas as informações
     public void imprimeTurma()
     {
         System.out.println("Informações da turma\n");
@@ -70,6 +77,7 @@ public class Turma
         }
     }
     
+    //mostra apenas os alunos 
     public void imprimeAlunos()
     {
         System.out.println("Informações da turma\n");
@@ -85,6 +93,7 @@ public class Turma
         }
     }
     
+    //mostra os responsaveis e o nome do aluno que estão relacionados
     public void imprimeResponsaveis()
     {
         System.out.println("Informações da turma\n");

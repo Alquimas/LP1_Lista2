@@ -1,5 +1,10 @@
 package L2_01;
 
+//Metodos para avaliação das entradas de dado
+//creio que sejam autoexplicativos no que devem
+//fazer
+//não os testei em casos extremos
+
 public abstract class EntradaDados
 {
     private final static String[] validEmails = 

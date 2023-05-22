@@ -11,7 +11,9 @@ public class Main
 		boolean s = true;
 		int i = 0;
 		Scanner sc = new Scanner(System.in);
-		
+
+
+		//loop para testar o código
 		while(s)
 		{
 		    System.out.println("#######################################");
@@ -152,7 +154,9 @@ public class Main
 		                    restelefone = sc.next();
 		                }
 		                sc.nextLine();
-		                
+
+
+		                //apos receber todos os dados cria um novo aluno e o adiciona a turma
 		                myTurma.addAluno(new Aluno(nome, email, telefone, matricula, new Responsavel(resnome, resemail, restelefone)));
 		            }
 		            break;

@@ -1,5 +1,7 @@
 package L2_01;
 
+//classe abstrata que as demais devem herdar
+
 public abstract class Pessoa
 {
     private String nome;
